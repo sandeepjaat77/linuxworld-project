@@ -1,0 +1,30 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return """
+    <h1>My Resume</h1>
+    <h3>Name : Sandeep</h3>
+    <h3>Email : yourname@gmail.com</h3>
+    <h3>Phone : +91XXXXXXXXXX</h3>
+    <hr>
+    <h2>Education</h2>
+    <p>B.Tech (CSE) - VGU</p>
+    <p>12th - RBSE</p>
+    <p>10th - RBSE</p>
+    <hr>
+    <h2>Skills</h2>
+    <ul>
+        <li>Python</li>
+        <li>c </li>
+        <li>Java</li>
+    </ul>
+    <hr>
+    <h2>Projects</h2>
+    <p> App</p>
+    <p>Calculator App</p>
+    """
+
+if __name__ == '__main__':
+    app.run()
