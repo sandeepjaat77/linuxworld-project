@@ -1,0 +1,14 @@
+import google.generativeai as genai
+api_key = "API KEY"
+
+genai.configure(api_key)
+model = genai.GenerativeModel("models/gemini-2.5-flash")
+
+print(" Chat BOT (type 'GATE OUT' to quit)")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == "GATE OUT":
+        print("BYYYYYYY")
+        break
+    response = model.generate_content(user_input)
+    print("BOT:", response.text)
