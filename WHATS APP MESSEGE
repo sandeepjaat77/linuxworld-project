@@ -1,0 +1,23 @@
+import pyttsx3
+import speech_recognition as sr
+import pywhatkit
+import os
+import webbrowser
+
+speaker = pyttsx3.init()
+mic = sr.Recognizer()
+speaker.say("hello world")
+speaker.runAndWait()
+with sr.Microphone() as source:
+    print("start speaking....")
+    voice = mic.listen(source)
+    text = mic.recognize_google(voice)
+if "open notepad" in text.lower():
+    print("Opening Notepad ...")
+    os.system("notepad")
+elif "send message" in text.lower():
+    print("Sending MSG ...")
+    pywhatkit.sendwhatmsg_instantly("+9177408681", "aap kon")
+elif "open youtube" in text.lower():
+    print("Opening YouTube ...")
+    webbrowser.open("https://www.youtube.com")
