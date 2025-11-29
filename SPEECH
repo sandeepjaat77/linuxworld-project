@@ -1,0 +1,27 @@
+import pyttsx3
+import speech_recognition as sr
+import pywhatkit
+import os
+
+speaker = pyttsx3.init()
+mic = sr.Recognizer()
+
+speaker.say("hello world")
+speaker.runAndWait()
+
+try:
+    with sr.Microphone() as source:
+        print("Start speaking....")
+        voice = mic.listen(source, timeout=5)
+
+    text = mic.recognize_google(voice)
+    print("You said:", text)
+except:
+    print("Could not understand audio or microphone not accessible")
+    text = ""
+
+if "open notepad" in text.lower():
+    print("Opening Notepad ...")
+    os.system("notepad")
+else:
+    print("don't know")
