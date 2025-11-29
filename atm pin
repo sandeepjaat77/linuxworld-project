@@ -1,0 +1,48 @@
+
+print("----------FRAUD BANK-----------" )
+
+user_Id = "www"
+user_password = "54321"
+
+user_name = input("Enter your user_name: ")
+
+if user_name == user_Id:
+    for i in range(3): 
+        password = input("Enter your password: ")
+        if password == user_password:
+            print("Unlocked")
+
+            balance = 5.00 
+
+            while True:
+                print("1. Check Balance")
+                print("2. Deposit Money")
+                print("3. Withdraw Money")
+                print("4. Exit")
+
+                choice = input("Enter your choice: ")
+                if choice == "1":
+                    print("Your Balance =", balance)
+                elif choice == "2":
+                    amount = int(input("Enter amount to deposit: "))
+                    balance += amount
+                    print("Money Added! New Balance =", balance)
+                elif choice == "3":
+                    amount = int(input("Enter amount to withdraw: "))
+                    if amount > balance:
+                        print("Insufficient Balance!")
+                    else:
+                        balance -= amount
+                        print("Withdrawal Successful! New Balance =", balance)
+                elif choice == "4":
+                    print(" tataa")
+                    break
+                else:
+                    print("Invalid choice! Try again.")
+            break     
+        else:
+            print("Wrong password! ")
+    else:
+        print("wrong password !! System Locked!!")
+else:
+    print("!! User_Id not found !!")
