@@ -1,0 +1,25 @@
+import streamlit as st
+import matplotlib.pyplot as plt
+
+st.title("<<<<Semester CGPA Dashboard>>>")
+
+semesters = list(range(1, 9))
+cgpa = [8, 9, 6, 7, 7.5, 8.3, 9.7, 6.9]
+
+st.subheader("Semester-wise CGPA")
+st.write("Your CGPA over 8 semesters:")
+
+
+st.table({"Semester": semesters, "CGPA": cgpa})
+st.subheader("CGPA Trend")
+plt.plot(semesters, cgpa, marker='o', linestyle='-', color='blue')
+plt.xticks(semesters)
+plt.ylim(0, 10)
+plt.xlabel("Semester")
+plt.ylabel("CGPA")
+plt.title("Semester CGPA Trend")
+st.pyplot(plt)
+
+avg_cgpa = sum(cgpa)/len(cgpa)
+st.subheader(" Average CGPA")
+st.write(f"{avg_cgpa:.2f}")
