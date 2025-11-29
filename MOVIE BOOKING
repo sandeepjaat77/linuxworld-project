@@ -1,0 +1,31 @@
+import streamlit as st
+st.title("MOVIE TICKET BOOKING APP")
+
+movies = { "KGF" : 350,
+         "RRR" : 400,
+         "SALAR" : 250,
+         "DON NO.1" : 199}
+
+st.header("Select a movie :")
+
+movie = st.selectbox("Choose a movie :", list(movies.keys()))
+
+price = movies[movie]
+
+show_times = ["10:00 AM", "1:00 PM", "4:00 PM", "7:00 PM", "10:00 PM"]
+time = st.selectbox("Choose a show time :", show_times)
+
+ticket = st.number_input("Enter number of ticket : " ,min_value = 1,step = 1)
+
+if st.button("Book Ticket :"):
+    total = price * ticket
+
+    st.success("Booking Successfull !!!!")
+    st.write( "------BOOKING DETAILS------")
+    st.write(f" MOVIE : {movie}" )
+    st.write(f"SHOW TIME : {time}") 
+    st.write(f" NO. TICKETS : {ticket}" )
+    st.write(f" PRIZE PER PERSON : {price}") 
+    st.write(f" TOTAL PRIZE : Rs {total}")
+
+    
