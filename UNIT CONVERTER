@@ -1,0 +1,30 @@
+print("1. Kilograms to Pounds")
+print("2. Celsius to Fahrenheit")
+print("3. Rupees to Dollars")
+print("4. Hours to Minutes")
+print("5. Kilometers to Miles")
+
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    kg = float(input("Enter weight in kg: "))
+    print("Pounds:", kg * 2.20462)
+
+elif choice == 2:
+    c = float(input("Enter temperature in Celsius: "))
+    print("Fahrenheit:", (c * 9/5) + 32)
+
+elif choice == 3:
+    inr = float(input("Enter amount in INR: "))
+    print("USD:", inr / 83)
+
+elif choice == 4:
+    hours = float(input("Enter hours: "))
+    print("Minutes:", hours * 60)
+
+elif choice == 5:
+    km = float(input("Enter distance in km: "))
+    print("Miles:", km * 0.621371)
+
+else:
+    print("Invalid choice")
