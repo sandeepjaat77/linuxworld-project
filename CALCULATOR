@@ -1,0 +1,34 @@
+import streamlit as st
+
+st.set_page_config(page_title="Simple Calculator", layout="centered")
+
+st.title(" Simple Calculator App")
+st.text("Welcome! Enter numbers and select an operation.")
+
+st.sidebar.header("User Info")
+name = st.sidebar.text_input("Enter your name:")
+age = st.sidebar.number_input("Enter your age:", min_value=0, max_value=120, step=1)
+if name:
+    st.sidebar.write(f"Name: {name}")
+    st.sidebar.write(f"Age: {age}")
+st.header("Calculator Inputs")
+col1, col2 = st.columns(2)
+with col1:
+    num1 = st.number_input("Enter first number:")
+with col2:
+    num2 = st.number_input("Enter second number:")
+operation = st.selectbox("Select operation:", ["Addition", "Subtraction", "Multiplication", "Division"])
+if st.button("Calculate"):
+    if operation == "Addition":
+        result = num1 + num2
+    elif operation == "Subtraction":
+        result = num1 - num2
+    elif operation == "Multiplication":
+        result = num1 * num2
+    elif operation == "Division":
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            result = "Error! Division by zero"
+    st.success(f"Result: {result}")
+
